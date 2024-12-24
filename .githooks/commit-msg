@@ -1,0 +1,23 @@
+#!/usr/bin/bash
+
+# Ensure commit-msg hook is in place
+# cd .git/hooks
+# mv commit-msg.sample commit-msg
+# chmod +x .git/hooks/commit-msg
+
+COMMIT_MESSAGE=$(cat "$1")
+BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
+
+# Check commit message format: PBMS-1234: Description
+if [[ ! $COMMIT_MESSAGE =~ ^PBMS-[0-9]+:\ .+$ ]]; then
+    echo "Error: Commit message must follow the format 'PBMS-1234: Description'"
+    exit 1
+fi
+
+# Check branch name format: feature/PBMS-1234-Description
+if [[ ! $BRANCH_NAME =~ ^(feature|bugfix|technical|hotfix|release)/PBMS-[0-9]+-[A-Za-z0-9_-]+$ ]]; then
+    echo "Error: Branch name must follow the pattern 'type/PBMS-1234-Description', where type is one of: feature, bugfix, technical, hotfix, release"
+    exit 1
+fi
+
+exit 0
