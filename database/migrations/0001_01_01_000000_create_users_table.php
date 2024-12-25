@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\User;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -11,14 +12,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+        Schema::create(User::TABLE, function (Blueprint $table) {
+            $table->uuid(User::ID_COLUMN)->index()->primary();
+            $table->string(User::NAME_COLUMN);
+            $table->string(User::EMAIL_COLUMN)->unique();
+            $table->timestamp(User::EMAIL_VERIFIED_AT_COLUMN)->nullable();
+            $table->string(User::PASSWORD_COLUMN);
+            $table->string(User::REMEMBER_TOKEN_COLUMN, 100)->nullable();
+            $table->timestamp(User::CREATED_AT_COLUMN, 0)->nullable();
+            $table->timestamp(User::UPDATED_AT_COLUMN, 0)->nullable();
+            $table->timestamp(User::DELETED_AT_COLUMN, 0)->nullable();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
@@ -42,7 +45,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists(User::TABLE);
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
     }

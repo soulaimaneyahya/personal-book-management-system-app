@@ -25,3 +25,16 @@ add UTC timezone in my.ini
 [mysqld]
 default-time-zone = '+00:00'
 ```
+
+### node-npm
+
+```sh
+$ npm -v
+10.9.0
+
+$ node -v
+v22.12.0
+
+$ nvm -v
+0.39.3
+```
