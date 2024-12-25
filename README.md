@@ -1,39 +1,20 @@
 # personal-book-management-system
 
-```sh
-composer install
-```
+### 🤝 Contributing
+We welcome contributions from everyone. If you're interested in contributing, please check out our [contribution guidelines](https://github.com/multividas/.github/blob/main/CONTRIBUTING.md).
 
-```sh
-cp .env.example .env
-```
+### 🛡️ Security Issues
 
-```sh
-php artisan key:generate
-```
+If you discover a security vulnerability within Multividas, we would appreciate your help in disclosing it to us responsibly, please check out our [security issues guidelines](https://github.com/multividas/.github/blob/main/SECURITY.md).
 
-```sh
-chmod -R 775 -R .scripts storage bootstrap/cache
-```
+### 🛡️ License
+All our projects are released under the [MIT License](https://github.com/multividas/.github/blob/main/LICENSE).
 
-### Npm
+### 🌐 Connect with Us
+- **Website**: [www.multividas.com](https://www.multividas.com)
+- **Email**: [multividasdotcom@gmail.com](mailto:multividasdotcom@gmail.com)
 
-```sh
-npm install && npm run build
-```
-
-### Runing using PHP Serve
-
-```sh
-php artisan migrate
-```
-
-```sh
-php artisan serve
-```
-
-### Running PHP Coding style
-
-```sh
-composer run-script php-fixer
-```
+### 📣 Stay Updated
+Follow us on social media to stay updated with the latest news, updates, and community events:
+- **X**: [@multividaseng](https://x.com/multividaseng)
+- **LinkedIn**: [Multividas](https://linkedin.com/company/multividas)
