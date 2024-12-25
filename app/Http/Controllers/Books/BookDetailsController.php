@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Books;
 
+use App\Models\BookDetails;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreBookDetailsRequest;
 use App\Http\Requests\UpdateBookDetailsRequest;
-use App\Models\BookDetails;
 
 class BookDetailsController extends Controller
 {
