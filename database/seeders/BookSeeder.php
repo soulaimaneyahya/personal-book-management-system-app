@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Author;
 use Illuminate\Database\Seeder;
 
 class BookSeeder extends Seeder
@@ -12,6 +12,8 @@ class BookSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        \App\Models\Book::factory(350)->create([
+            \App\Models\Book::AUTHOR_ID_COLUMN => Author::query()->inRandomOrder()->first()->getId(),
+        ]);
     }
 }

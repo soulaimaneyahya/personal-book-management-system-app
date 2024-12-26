@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -24,11 +25,11 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
-            'remember_token' => Str::random(10),
+            User::NAME_COLUMN => fake()->name(),
+            User::EMAIL_COLUMN => fake()->unique()->safeEmail(),
+            User::EMAIL_VERIFIED_AT_COLUMN => now(),
+            User::PASSWORD_COLUMN => static::$password ??= Hash::make('password'),
+            User::REMEMBER_TOKEN_COLUMN => Str::random(10),
         ];
     }
 
@@ -38,7 +39,7 @@ class UserFactory extends Factory
     public function unverified(): static
     {
         return $this->state(fn (array $attributes) => [
-            'email_verified_at' => null,
+            User::EMAIL_VERIFIED_AT_COLUMN => null,
         ]);
     }
 }
