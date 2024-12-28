@@ -3,6 +3,16 @@
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 
+Route::resource('books', \App\Http\Controllers\Books\BookController::class);
+Route::resource('categories', \App\Http\Controllers\Categories\CategoryController::class);
+Route::resource('authors', \App\Http\Controllers\Authors\AuthorController::class);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/', function () {
+    return view('index');
+});
+
 \Illuminate\Support\Facades\Auth::routes([
     'login' => true,
     'register' => true,
@@ -10,12 +20,6 @@ use Laravel\Socialite\Facades\Socialite;
     'reset' => false,
     'confirm' => false,
 ]);
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/', function () {
-    return view('index');
-});
 
 /**
  * Laravel socialite
