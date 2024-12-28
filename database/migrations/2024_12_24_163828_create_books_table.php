@@ -17,6 +17,10 @@ return new class extends Migration
         Schema::create(Book::TABLE, function (Blueprint $table) {
             $table->uuid(Book::ID_COLUMN)->index()->primary();
             $table->string(Book::NAME_COLUMN, 255);
+            $table->foreignUuid(Book::AUTHOR_ID_COLUMN)
+                ->constrained()
+                ->on(\App\Models\Author::TABLE)
+                ->onDelete('cascade');
             // Decimal for price, allowing for precision
             $table->decimal(Book::PRICE_COLUMN, 10, 4);
             $table->timestamp(Book::CREATED_AT_COLUMN, 0)->nullable();

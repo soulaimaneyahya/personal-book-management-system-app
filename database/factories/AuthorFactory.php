@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Author;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,8 @@ class AuthorFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            Author::NAME_COLUMN => fake()->name(),
+            Author::EMAIL_COLUMN => fake()->unique()->safeEmail(),
         ];
     }
 }

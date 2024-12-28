@@ -16,6 +16,9 @@ return new class extends Migration
     {
         Schema::create(BookDetails::TABLE, function (Blueprint $table) {
             $table->uuid(BookDetails::ID_COLUMN)->index()->primary();
+            $table->foreignUuid(BookDetails::BOOK_ID_COLUMN)->constrained()
+                ->on(\App\Models\Book::TABLE)
+                ->onDelete('cascade');
             $table->string(BookDetails::DESCRIPTION_COLUMN, 700);
             $table->timestamp(BookDetails::CREATED_AT_COLUMN, 0)->nullable();
             $table->timestamp(BookDetails::UPDATED_AT_COLUMN, 0)->nullable();

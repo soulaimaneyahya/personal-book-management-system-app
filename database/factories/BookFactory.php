@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Book;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,8 @@ class BookFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            Book::NAME_COLUMN => fake()->sentence(3, true),
+            Book::PRICE_COLUMN => fake()->randomFloat(4, 10, 500),
         ];
     }
 }

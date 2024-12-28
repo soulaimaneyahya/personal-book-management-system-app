@@ -16,6 +16,7 @@ class Book extends Model
 
     public const TABLE = 'books';
     public const ID_COLUMN = 'id';
+    public const AUTHOR_ID_COLUMN = 'author_id';
 
     public const NAME_COLUMN = 'name';
     public const PRICE_COLUMN = 'price';
@@ -48,6 +49,11 @@ class Book extends Model
     public function getId(): string
     {
         return $this->getAttribute(self::ID_COLUMN);
+    }
+
+    public function getAuthorId(): string
+    {
+        return $this->getAttribute(self::AUTHOR_ID_COLUMN);
     }
 
     public function getName(): string

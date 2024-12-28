@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\BookDetails;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,7 @@ class BookDetailsFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            BookDetails::DESCRIPTION_COLUMN => fake()->paragraph(3, true),
         ];
     }
 }
