@@ -5,6 +5,8 @@ We welcome contributions from everyone. If you're interested in contributing, pl
 
 -----
 
+# JUST SIMPLE USELESS SIDE PROJECT 😃 // taking my time dev // i'm just developing something 😅
+
 ## Features to implement
 
 **Database Advanced**
